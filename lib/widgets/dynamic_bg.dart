@@ -9,12 +9,17 @@ class DynamicBackground extends StatefulWidget {
 }
 
 class _DynamicBackgroundState extends State<DynamicBackground> {
-  MaterialColor currentColor = Colors.primaries[0];
+  Color currentColor = Colors.blueGrey;
+  final Random random = Random();
   bool isChanged = false;
   void changeColor() {
     setState(() {
-      currentColor =
-          Colors.primaries[Random().nextInt(Colors.primaries.length)];
+      currentColor = Color.fromARGB(
+        random.nextInt(256),
+        random.nextInt(256),
+        random.nextInt(256),
+        random.nextInt(256),
+      );
       isChanged = !isChanged;
     });
   }
